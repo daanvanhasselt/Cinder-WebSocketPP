@@ -60,6 +60,8 @@ public:
 
 	Client&			getClient();
 	const Client&	getClient() const;
+
+	size_t			getBufferedAmount();
 protected:
 	Client			mClient;
 	

@@ -204,6 +204,11 @@ const WebSocketClient::Client& WebSocketClient::getClient() const
 	return mClient;
 }
 
+size_t WebSocketClient::getBufferedAmount() {
+	auto connection = mClient.get_con_from_hdl(mHandle);
+	return connection->get_buffered_amount();
+}
+
 void WebSocketClient::onClose( Client* client, websocketpp::connection_hdl handle ) 
 {
 	if ( mCloseEventHandler != nullptr ) {
